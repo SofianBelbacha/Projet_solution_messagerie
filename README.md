@@ -40,11 +40,17 @@ Ce projet vous permet de mettre en place un **serveur mail complet auto-héberg�
 # Installer les services
 sudo apt install postfix dovecot-core dovecot-imapd mariadb-server nginx php php-mysql
 
-# Télécharger Rainloop (dans www/rainloop/)
-wget https://www.rainloop.net/repository/webmail/rainloop-community-latest.zip
-unzip rainloop-community-latest.zip -d /var/www/html/rainloop
+### Télécharger Rainloop (dans www/rainloop/)
+apt install php-curl php-xml curl  \
+wget -qO- https://repository.rainloop.net/installer.php | php  \
 
-# Configurer les fichiers dans config/
-# Créer et génerer les tables SQL (voir sql/creation_base_messagerie.sql et creation_utilisateurs_messagerie.sql)
+#### Puis dans le dossier rainloop : 
+
+find . -type d -exec chmod 755 {} \;  \
+find . -type f -exec chmod 644 {} \;  \
+chown -R www-data:www-data [url du dossier rainloop]  \
+### Configurer les fichiers dans config/
+
+### Créer les tables SQL et génerer les tuples** (voir sql/creation_base_messagerie.sql et creation_utilisateurs_messagerie.sql)
 mysql -u root -p < sql/creation_base_messagerie.sql...
 
