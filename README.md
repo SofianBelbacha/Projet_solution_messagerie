@@ -1,6 +1,6 @@
 # 📬 Serveur Mail Personnel — Postfix + Dovecot + Rainloop
 
-Ce projet vous permet de mettre en place un **serveur mail complet auto-hébergé** sur Debian, avec :
+Ce projet est un **serveur mail complet auto-hébergé** sur Debian, avec :
 - **Postfix** pour le service SMTP (envoi de mails)
 - **Dovecot** pour le service IMAP (réception de mails)
 - **Rainloop** comme Webmail moderne
@@ -51,6 +51,6 @@ find . -type f -exec chmod 644 {} \;  \
 chown -R www-data:www-data [url du dossier rainloop]  \
 ### Configurer les fichiers dans config/
 
-### Créer les tables SQL et génerer les tuples** (voir sql/creation_base_messagerie.sql et creation_utilisateurs_messagerie.sql)
+#### Créer les tables SQL et génerer les tuples** (voir sql/creation_base_messagerie.sql et creation_utilisateurs_messagerie.sql)
 mysql -u root -p < sql/creation_base_messagerie.sql...
 
