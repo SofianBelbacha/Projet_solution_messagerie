@@ -1,0 +1,5 @@
+user = messagingUser
+password = kyocr
+hosts = 127.0.0.1
+dbname = messaging
+query = SELECT maildir FROM virtual_users WHERE email='%s'
