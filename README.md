@@ -1,20 +1,50 @@
-# Serveur Mail Personnel avec Postfix, Dovecot, Rainloop
+# 📬 Serveur Mail Personnel — Postfix + Dovecot + Rainloop
 
-Ce dépôt contient la configuration d’un serveur mail auto-hébergé basé sur :
+Ce projet vous permet de mettre en place un **serveur mail complet auto-hébergé** sur Debian, avec :
+- **Postfix** pour le service SMTP (envoi de mails)
+- **Dovecot** pour le service IMAP (réception de mails)
+- **Rainloop** comme Webmail moderne
+- Une interface web d’administration minimaliste en PHP
 
-- **Postfix** pour l’envoi de mail (SMTP)
-- **Dovecot** pour la réception (IMAP)
-- **Rainloop** pour le webmail
-- Une interface d’administration PHP
+---
 
-## Arborescence
+## ✨ Fonctionnalités
 
-- `config/` : tous les fichiers de configuration (Postfix, Dovecot, Nginx)
-- `www/` : fichiers web (interface PHP, scripts, webmail)
-- `sql/` : scripts SQL pour initialiser les utilisateurs et domaines
-- `scripts/` : redémarrage des services via sudo
+- 📤 Envoi de mails via Postfix (supporte authentification SMTP)
+- 📥 Réception des mails via Dovecot (IMAP uniquement)
+- 🌐 Interface Webmail moderne via Rainloop
+- ⚙️ Interface admin PHP pour redémarrer les services
+- 🗃️ Gestion des utilisateurs/destinataires via MariaDB
 
-## Installation
+---
 
-> Instructions détaillées à venir...
+## 🖼️ Aperçu de l’interface
+
+
+**Connexion Webmail (Rainloop)**  
+![Rainloop Login](https://i.postimg.cc/5Ndd817X/screen-rainloop-connexion.png)
+
+**Interface de la boite de réception**  
+![Compose Mail](https://i.postimg.cc/CxkBMFZS/screen-rainloop.png)
+
+**Interface administrateur (Rainloop)**  
+![Admin Modal](https://i.postimg.cc/dQz61VWx/screen-rainloop-admin.png)
+
+**Interface administrateur**  
+![Admin Modal](https://i.postimg.cc/0NXkG3Fb/screen-admin.png)
+
+---
+
+## ⚙️ Installation (résumé)
+
+# Installer les services
+sudo apt install postfix dovecot-core dovecot-imapd mariadb-server nginx php php-mysql
+
+# Télécharger Rainloop (dans www/rainloop/)
+wget https://www.rainloop.net/repository/webmail/rainloop-community-latest.zip
+unzip rainloop-community-latest.zip -d /var/www/html/rainloop
+
+# Configurer les fichiers dans config/
+# Créer et génerer les tables SQL (voir sql/creation_base_messagerie.sql et creation_utilisateurs_messagerie.sql)
+mysql -u root -p < sql/creation_base_messagerie.sql...
 
